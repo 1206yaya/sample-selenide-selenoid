@@ -28,8 +28,8 @@ class CustomDriverTests {
     @DisplayName("Able to run custom driver on Selenoid")
     void ableToRunCustomDriverOnSelenoid() {
         open("https://www.google.com");
-//        assertEquals(title(), "Google");
-        assertEquals(title(), "Zakki");
+        assertEquals(title(), "Google");
+//        assertEquals(title(), "Zakki");
     }
 
     public static class CustomProvider implements WebDriverProvider {
@@ -39,7 +39,7 @@ class CustomDriverTests {
             firefoxOptions.setAcceptInsecureCerts(true);
             firefoxOptions.merge(capabilities);
             try {
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions);
+                return new RemoteWebDriver(new URL("http://192.168.48.3:4444/wd/hub"), firefoxOptions);
             } catch (final MalformedURLException e) {
                 throw new RuntimeException("Unable to create remote driver", e);
             }
