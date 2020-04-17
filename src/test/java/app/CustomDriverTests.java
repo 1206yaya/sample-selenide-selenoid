@@ -39,7 +39,8 @@ class CustomDriverTests {
             firefoxOptions.setAcceptInsecureCerts(true);
             firefoxOptions.merge(capabilities);
             try {
-                return new RemoteWebDriver(new URL("http://192.168.48.3:4444/wd/hub"), firefoxOptions);
+        		String url = "http://localhost:4444/wd/hub";
+        		return new RemoteWebDriver(new URL(url), firefoxOptions);
             } catch (final MalformedURLException e) {
                 throw new RuntimeException("Unable to create remote driver", e);
             }
